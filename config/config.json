@@ -1,0 +1,33 @@
+{
+  "development": {
+    "username": "root",
+    "password": "123456",
+    "database": "practice_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "define": {
+      "charset": "utf8",
+      "dialectOptions": { "collate": "utf8_general_ci" }
+    },
+    "user_type": {
+      "CLIENT": "client",
+      "ADMIN": "admin",
+      "SUPER_ADMIN": "super_admin"
+    },
+    "token_secret_key": "practice_app"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
