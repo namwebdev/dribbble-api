@@ -7,7 +7,8 @@ const getCategories = async (req, res) => {
   try {
     const categories = name
       ? await Category.findAll({
-          where: { name: { [Op.like]: `%${name}%` }, order },
+          where: { name: { [Op.like]: `%${name}%` } },
+          order,
         })
       : await Category.findAll({ order });
     res.status(200).json({ data: categories || [] });
