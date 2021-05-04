@@ -1,7 +1,5 @@
 "use strict";
 const { Model } = require("sequelize");
-const env = process.env.NODE_ENV || "development";
-const config = require(__dirname + "/../config/config.json")[env];
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
@@ -35,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       avatar: DataTypes.STRING,
       type: {
         type: DataTypes.STRING,
-        defaultValue: config.user_type.CLIENT,
+        defaultValue: "client",
       },
     },
     {
