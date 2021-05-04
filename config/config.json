@@ -18,16 +18,16 @@
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "password": "B62CrkVSJ49eWMki",
+    "database": "dribbble_db",
+    "host": "product-db-r63bjtnvvnfmiuwp-svc.qovery.io",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "password": "B62CrkVSJ49eWMki",
+    "database": "dribbble_db",
+    "host": "product-db-r63bjtnvvnfmiuwp-svc.qovery.io",
     "dialect": "mysql"
   }
 }
