@@ -1,13 +1,9 @@
 const express = require("express");
 const path = require("path");
-const { sequelize } = require("sequelize");
-const crawler = require("./crawler");
-
-const router = express.Router();
 const { rootRouter } = require("./routes/index");
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(express.json());
 
@@ -35,14 +31,11 @@ app.use((error, req, res, next) => {
   });
 });
 
-app.listen(port, async () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log("App listening on port", port);
   try {
-    // await sequelize.authenticate();
     console.log("Connect to Database successfully");
   } catch (err) {
     console.error("Unable to connect to Database:", err);
   }
 });
-
-// crawler();
