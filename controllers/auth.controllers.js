@@ -22,7 +22,6 @@ const register = async (req, res, next) => {
     });
     res.status(201).json({ message: "Register success", data: newUser });
   } catch (err) {
-    console.error(err);
     res.status(500).json({ message: err });
   }
 };
