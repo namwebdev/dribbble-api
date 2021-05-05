@@ -17,6 +17,12 @@ module.exports = {
       link: {
         type: Sequelize.STRING,
       },
+      like: {
+        type: Sequelize.STRING,
+      },
+      view: {
+        type: Sequelize.STRING,
+      },
       category_id: {
         type: Sequelize.INTEGER,
         references: {
