@@ -3,14 +3,13 @@ const { Category } = require("../models/index");
 
 const getCategories = async (req, res) => {
   const { name } = req.query;
-  const order = [["id", "DESC"]];
+
   try {
     const categories = name
       ? await Category.findAll({
           where: { name: { [Op.like]: `%${name}%` } },
-          order,
         })
-      : await Category.findAll({ order });
+      : await Category.findAll();
     res.status(200).json({ data: categories || [] });
   } catch (err) {
     console.log(err);

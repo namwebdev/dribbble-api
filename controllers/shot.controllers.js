@@ -9,7 +9,8 @@ const { setPagination } = require("../services/pagination");
 const getAllShot = async (req, res) => {
   const order = [["id", "DESC"]];
   const { page = 1, limit = 12, category_id } = req.query;
-  let params = { order, limit };
+  const offset = (Number(page) - 1) * Number(limit);
+  let params = { order, limit: Number(limit), offset };
 
   try {
     if (category_id) {
