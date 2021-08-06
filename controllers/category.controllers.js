@@ -29,9 +29,9 @@ const createCategory = async (req, res) => {
       return;
     }
     const { name, tag } = req.body;
-    const newStation = await Category.create({ name, tag });
+    const newCategory = await Category.create({ name, tag });
     res.status(201).json({
-      data: newStation,
+      data: newCategory,
       message: "Create Category successfully",
     });
   } catch (err) {

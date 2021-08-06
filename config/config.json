@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "B62CrkVSJ49eWMki",
+    "password": "KAA83ItJLUlm64lS",
     "database": "dribbble_db",
-    "host": "product-db-r63bjtnvvnfmiuwp-svc.qovery.io",
+    "host": "za7595e3f-mysql.qovery.io",
     "dialect": "mysql",
     "define": {
       "charset": "utf8",
@@ -25,9 +25,9 @@
   },
   "production": {
     "username": "root",
-    "password": "B62CrkVSJ49eWMki",
+    "password": "KAA83ItJLUlm64lS",
     "database": "dribbble_db",
-    "host": "product-db-r63bjtnvvnfmiuwp-svc.qovery.io",
+    "host": "za7595e3f-mysql.qovery.io",
     "dialect": "mysql"
   }
 }
