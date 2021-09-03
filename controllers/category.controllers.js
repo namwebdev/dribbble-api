@@ -39,7 +39,17 @@ const createCategory = async (req, res) => {
   }
 };
 
+const deleteCategory = async (req, res) => {
+  const id = req.params.id;
+  const category = await Category.findOne({ where: { id } });
+  if (category) await Category.destroy({ where: { id } });
+  res.status(201).json({
+    message: "Delete Category successfully",
+  });
+};
+
 module.exports = {
   getCategories,
   createCategory,
+  deleteCategory,
 };
