@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "KAA83ItJLUlm64lS",
-    "database": "dribbble_db",
-    "host": "za7595e3f-mysql.qovery.io",
+    "password": "AFS3JlEgnyxxXwms",
+    "database": "dribbble-db",
+    "host": "zf96f3cc8-mysql.qovery.io",
     "dialect": "mysql",
     "define": {
       "charset": "utf8",
