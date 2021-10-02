@@ -1,13 +1,19 @@
 {
   "development": {
-    "username": "root",
-    "password": "AFS3JlEgnyxxXwms",
-    "database": "dribbble-db",
-    "host": "zf96f3cc8-mysql.qovery.io",
-    "dialect": "mysql",
+    "username": "xamgtaahbhltcv",
+    "password": "78b373f8a6f4d212edd3f2f725876df5a17cbab34b1eef3165a8065d4e47f904",
+    "database": "dfq96t54925su7",
+    "host": "ec2-34-233-187-36.compute-1.amazonaws.com",
+    "dialect": "postgres",
     "define": {
       "charset": "utf8",
       "dialectOptions": { "collate": "utf8_general_ci", "charset": "utf8mb4" }
+    },
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
     },
     "user_type": {
       "CLIENT": "client",
@@ -24,10 +30,16 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "AFS3JlEgnyxxXwms",
-    "database": "dribbble-db",
-    "host": "zf96f3cc8-mysql.qovery.io",
-    "dialect": "mysql"
+    "username": "xamgtaahbhltcv",
+    "password": "78b373f8a6f4d212edd3f2f725876df5a17cbab34b1eef3165a8065d4e47f904",
+    "database": "dfq96t54925su7",
+    "host": "ec2-34-233-187-36.compute-1.amazonaws.com",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   }
 }
