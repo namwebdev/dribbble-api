@@ -3,6 +3,8 @@ const cors = require("cors");
 const path = require("path");
 const { rootRouter } = require("./routes/index");
 
+const { runCronJob } = require("./cron_jobs/index");
+
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -36,3 +38,5 @@ app.use((error, req, res, next) => {
 app.listen(port, () => {
   console.log("App listening on port", port);
 });
+
+runCronJob();

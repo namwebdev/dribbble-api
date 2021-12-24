@@ -58,7 +58,8 @@ const crawlShot = async (req, res) => {
 
     if (is_refresh) await Shot.destroy({ truncate: true });
     const categories = await Category.findAll();
-    shots = await crawAllShot(categories);
+    const listShotExist = await Shot.findAll();
+    shots = await crawAllShot(categories, listShotExist);
     await Shot.bulkCreate(shots, { returning: true });
     res.status(201).json({
       message: `Crawl Shot successfully`,
