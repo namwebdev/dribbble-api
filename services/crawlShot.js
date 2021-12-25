@@ -46,7 +46,6 @@ const crawlShotBelongCategory = (category, listShotExist) => {
 
               const isShotExist =
                 listShotExist.findIndex((shot) => shot.image === image) !== -1;
-                console.log(isShotExist);
               if (!isShotExist) {
                 const shot = {
                   title: removeEmojis(title),
@@ -60,6 +59,8 @@ const crawlShotBelongCategory = (category, listShotExist) => {
                   view: getNumber(view),
                 };
                 shots.push(shot);
+                
+                console.log("create shot: " + title);
               }
             });
             resolve(shots);
