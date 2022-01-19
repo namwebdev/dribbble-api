@@ -24,4 +24,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: docker build -t dribbble-api
     - run: docker-compose up -d
