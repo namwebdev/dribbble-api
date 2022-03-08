@@ -1,12 +1,12 @@
 const request = require("request");
 const cherrio = require("cheerio");
 
-const crawAllShot = (categories, listShotExist) => {
+const crawAllShot = (categories, listImageExist) => {
   return new Promise(async (resolve, reject) => {
     try {
       const listShot = [];
       for await (category of categories) {
-        const shots = await crawlShotBelongCategory(category, listShotExist);
+        const shots = await crawlShotBelongCategory(category, listImageExist);
         if (shots) listShot.push(shots);
       }
       resolve(Array.prototype.concat.apply([], listShot));
@@ -16,7 +16,7 @@ const crawAllShot = (categories, listShotExist) => {
   });
 };
 
-const crawlShotBelongCategory = (category, listShotExist) => {
+const crawlShotBelongCategory = (category, listImageExist) => {
   return new Promise((resolve, reject) => {
     request(
       `https://dribbble.com/shots/popular/${category.tag}`,
@@ -34,7 +34,7 @@ const crawlShotBelongCategory = (category, listShotExist) => {
                 .find("a.shot-thumbnail-link.dribbble-link.js-shot-link")
                 .attr("href");
               const image = $(el)
-                .find("img.lazyload")
+                .find("img.lazyautosizes.lazyloaded")
                 .attr("src")
                 .replace("400x300", "1200x900");
               const like = $(el).find("span.js-shot-likes-count").html();
@@ -44,9 +44,10 @@ const crawlShotBelongCategory = (category, listShotExist) => {
               const author_avatar = $(el).find("img.photo").attr("data-src");
               const author_link = $(el).find("a.hoverable").attr("href");
 
-              const isShotExist =
-                listShotExist.findIndex((shot) => shot.image === image) !== -1;
-              if (!isShotExist) {
+              const isImageNotExist =
+                listImageExist.findIndex((shotImage) => shotImage === image) ===
+                -1;
+              if (isImageNotExist) {
                 const shot = {
                   title: removeEmojis(title),
                   link: getFullUrl(link),
@@ -59,8 +60,6 @@ const crawlShotBelongCategory = (category, listShotExist) => {
                   view: getNumber(view),
                 };
                 shots.push(shot);
-                
-                console.log("create shot: " + title);
               }
             });
             resolve(shots);

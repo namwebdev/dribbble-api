@@ -10,8 +10,10 @@ const runCronJob = () => {
 
 const crawl = async () => {
   const categories = await Category.findAll();
-  const listShotExist = await Shot.findAll();
-  const shots = await crawAllShot(categories, listShotExist);
+  const listImageExist = await Shot.findAll({
+    attributes: ["image"],
+  });
+  const shots = await crawAllShot(categories, listImageExist);
   await Shot.bulkCreate(shots, { returning: false });
 };
 
