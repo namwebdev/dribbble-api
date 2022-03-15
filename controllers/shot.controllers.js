@@ -45,7 +45,10 @@ const crawlShot = async (req, res) => {
       });
       if (cate) {
         if (is_refresh) await Shot.destroy({ truncate: true });
-        shots = await crawlShotBelongCategory(cate);
+        const listImageExist = await Shot.findAll({
+          attributes: ["image"],
+        });
+        shots = await crawlShotBelongCategory(cate, listImageExist);
         await Shot.bulkCreate(shots, { returning: true });
         res.status(201).json({
           message: `Crawl Shot for category "${category}" successfully`,
@@ -57,12 +60,16 @@ const crawlShot = async (req, res) => {
     }
 
     if (is_refresh) await Shot.destroy({ truncate: true });
-    const categories = await Category.findAll();
-    const listShotExist = await Shot.findAll();
-    shots = await crawAllShot(categories, listShotExist);
-    await Shot.bulkCreate(shots, { returning: true });
-    res.status(201).json({
-      message: `Crawl Shot successfully`,
+    shots = await crawAllShot();
+    if (shots.length > 0) {
+      await Shot.bulkCreate(shots, { returning: true });
+      res.status(201).json({
+        message: `Crawl Shot successfully`,
+      });
+      return;
+    }
+    res.status(200).json({
+      message: `No new Shot to crawl`,
     });
   } catch (err) {
     console.log(err);
