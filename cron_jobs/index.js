@@ -3,7 +3,7 @@ const { Shot } = require("../models");
 const { crawAllShot } = require("../services/crawlShot");
 
 const runCronJob = () => {
-  cron.schedule("1 */4 * * *", () => {
+  cron.schedule("1 */2 * * *", () => {
     crawl();
   });
 };

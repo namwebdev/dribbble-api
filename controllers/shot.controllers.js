@@ -62,7 +62,7 @@ const crawlShot = async (req, res) => {
     if (is_refresh) await Shot.destroy({ truncate: true });
     shots = await crawAllShot();
     if (shots.length > 0) {
-      await Shot.bulkCreate(shots, { returning: true });
+      await Shot.bulkCreate(shots, { returning: false });
       res.status(201).json({
         message: `Crawl Shot successfully`,
       });
