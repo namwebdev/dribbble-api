@@ -39,6 +39,9 @@ module.exports = {
       author_link: {
         type: Sequelize.STRING,
       },
+      video: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

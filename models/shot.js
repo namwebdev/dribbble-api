@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       author_name: DataTypes.STRING,
       author_avatar: DataTypes.STRING,
       author_link: DataTypes.STRING,
+      video: DataTypes.STRING,
     },
     {
       sequelize,
