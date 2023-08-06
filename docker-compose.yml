@@ -3,4 +3,4 @@ services:
   dribbbleapi:
     image: dribbble-api
     ports:
-      - 80:5000
+      - 5000:5000
