@@ -1,9 +1,8 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:18' // Use the official Node.js Docker image with version 14
-            args '-u root' // Set the user to root to have installation permissions
-        }
+    agent any
+
+    tools {
+        nodejs "NodeJS18" // Define a Node.js tool with version 14 in Jenkins Global Tool Configuration
     }
 
     stages {
