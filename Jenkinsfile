@@ -12,7 +12,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Install Node.js and npm
-                sh 'curl -sL https://deb.nodesource.com/setup_14.x | -E bash -'
+                sh 'curl -sL https://deb.nodesource.com/setup_14.x | bash -'
                 sh 'apt-get install -y nodejs'
                 
                 // Install app dependencies
