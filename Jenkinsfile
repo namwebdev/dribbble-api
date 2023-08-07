@@ -1,9 +1,7 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs "NodeJS18" // Define a Node.js tool with version 14 in Jenkins Global Tool Configuration
-    }
+    tools {nodejs "latest"}
 
     stages {
         stage('Checkout') {
