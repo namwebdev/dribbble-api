@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:18' // Use the official Node.js Docker image with version 14
+            args '-u root' // Set the user to root to have installation permissions
+        }
+    }
 
     stages {
         stage('Checkout') {
@@ -10,11 +15,7 @@ pipeline {
         }
 
         stage('Install Dependencies') {
-            steps {
-                // Install Node.js and npm
-                sh 'curl -sL https://deb.nodesource.com/setup_14.x | bash -'
-                sh 'apt-get install -y nodejs'
-                
+            steps {                
                 // Install app dependencies
                 sh 'npm install'
             }
