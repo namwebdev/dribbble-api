@@ -13,7 +13,7 @@ pipeline {
             steps {
                 // Install Node.js and npm
                 sh 'curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -'
-                sh 'sudo apt-get install -y nodejs'
+                sh 'apt-get install -y nodejs'
                 
                 // Install app dependencies
                 sh 'npm install'
