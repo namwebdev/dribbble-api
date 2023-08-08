@@ -8,24 +8,24 @@ on:
     branches: [ master ]
 
 jobs:
-  test:
+  build_test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [18.x]
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-          with:
-            node-version: ${{ matrix.node-version }}
-            cache: 'npm'
-      - name: Run test
-        run: npm run test
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+    - name: Run test
+      run: npm run test
 
-  build:
+  build_run:
     runs-on: self-hosted
 
     strategy:
