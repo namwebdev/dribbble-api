@@ -22,20 +22,22 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+    - name: Install Dependencies
+      run: npm install
     - name: Run test
       run: npm run test
 
-  build_run:
-    runs-on: self-hosted
+  # build_run:
+  #   runs-on: self-hosted
 
-    strategy:
-      matrix:
-        node-version: [18.x]
+  #   strategy:
+  #     matrix:
+  #       node-version: [18.x]
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Build image
-      run: docker build -t dribbble-api .
-    - name: Start app
-      run: docker-compose up -d
+  #   steps:
+  #   - name: Checkout repository
+  #     uses: actions/checkout@v2
+  #   - name: Build image
+  #     run: docker build -t dribbble-api .
+  #   - name: Start app
+  #     run: docker-compose up -d
