@@ -30,7 +30,7 @@ jobs:
 
   build_run:
     runs-on: self-hosted
-    needs: job1
+    needs: build
 
     strategy:
       matrix:
